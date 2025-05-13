@@ -1,0 +1,33 @@
+<div class="container">
+<h2>Modifier Maintenance</h2>
+
+<form [formGroup]="maintenanceForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Type:</label>
+    <input type="text" formControlName="type" />
+  </div>
+
+  <div>
+    <label>Date:</label>
+    <input type="date" formControlName="date" />
+  </div>
+
+  <div>
+    <label>Machine:</label>
+    <select formControlName="machine">
+      <option *ngFor="let machine of machines" [ngValue]="machine">{{ machine.nom }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Technicien:</label>
+    <select formControlName="technicien">
+      <option *ngFor="let technicien of techniciens" [ngValue]="technicien">{{ technicien.nom }}</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="maintenanceForm.invalid">Enregistrer</button>
+      <button (click)="goBack()">Retour</button>
+
+</form>
+</div>

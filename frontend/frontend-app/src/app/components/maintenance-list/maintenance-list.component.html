@@ -1,0 +1,33 @@
+<div class="container">
+
+<h2>Liste des Maintenances</h2>
+<button (click)="addMaintenance()">Ajouter une Maintenance</button>
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Machine</th>
+      <th>Technicien</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of maintenances">
+      <td>{{ m.id }}</td>
+      <td>{{ m.date }}</td>
+      <td>{{ m.type }}</td>
+      <td>{{ m.machine?.nom }}</td>
+      <td>{{ m.technicien?.nom }}</td>
+      <td>
+        <button (click)="editMaintenance(m.id)">Modifier</button>
+        <button (click)="deleteMaintenance(m.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="header-section">
+    <h2>Liste des Fournisseurs</h2>
+    <button class="add-btn" (click)="addFournisseur()">
+      <i class="fas fa-plus"></i> Ajouter un fournisseur
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="fournisseurs-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Adresse</th>
+          <th>Téléphone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fournisseur of fournisseurs">
+          <td>{{ fournisseur.id }}</td>
+          <td>{{ fournisseur.nom }}</td>
+          <td>{{ fournisseur.adresse }}</td>
+          <td>{{ fournisseur.telephone }}</td>
+          <td class="actions-cell">
+            <button class="edit-btn" (click)="editFournisseur(fournisseur.id)">
+              <i class="fas fa-edit"></i> Modifier
+            </button>
+            <button class="delete-btn" (click)="deleteFournisseur(fournisseur.id)">
+              <i class="fas fa-trash-alt"></i> Supprimer
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

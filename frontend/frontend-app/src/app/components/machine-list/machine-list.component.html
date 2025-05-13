@@ -1,0 +1,33 @@
+<div class="container">
+
+<h2>Liste des Machines</h2>
+
+<!-- Button to navigate to the "Add Machine" page -->
+<button (click)="addMachine()">Ajouter une Machine</button>
+
+<!-- Table to display the list of machines -->
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>État</th>
+      <th>Maintenance Prochaine</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+ 
+    <tr *ngFor="let machine of machines">
+      <td>{{ machine.id }}</td>
+      <td>{{ machine.nom }}</td>
+      <td>{{ machine.etat }}</td>
+      <td>{{ machine.prochaineMaintenance | date }}</td>
+      <td>
+        <button (click)="editMachine(machine.id)">Modifier</button>
+        <button (click)="deleteMachine(machine.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

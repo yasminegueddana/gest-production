@@ -1,0 +1,43 @@
+<div class="container">
+
+<h2>Ajouter un Ordre de Fabrication</h2>
+
+<form [formGroup]="ordreForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="projet">Projet:</label>
+    <input type="text" id="projet" formControlName="projet" required />
+  </div>
+
+  <div>
+    <label for="produit">Produit:</label>
+    <select id="produit" formControlName="produit" required>
+      <option [ngValue]="null">-- Sélectionnez un produit --</option>
+      <option *ngFor="let produit of produits" [ngValue]="produit">
+        {{ produit.nom }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label for="quantite">Quantité:</label>
+    <input type="number" id="quantite" formControlName="quantite" required />
+  </div>
+
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" id="date" formControlName="date" required />
+  </div>
+
+  <div>
+    <label for="etat">État:</label>
+    <select id="etat" formControlName="etat" required>
+      <option value="En cours">En cours</option>
+      <option value="Terminé">Terminé</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="ordreForm.invalid">Ajouter</button>
+  <button type="button" (click)="goBack()">Annuler</button>
+
+</form>
+</div>

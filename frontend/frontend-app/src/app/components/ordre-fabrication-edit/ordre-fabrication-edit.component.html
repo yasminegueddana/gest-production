@@ -1,0 +1,57 @@
+<div class="container">
+<h2>Modifier un Ordre de Fabrication</h2>
+
+<form [formGroup]="ordreForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="projet">Projet:</label>
+    <input type="text" id="projet" formControlName="projet" required />
+    <small *ngIf="ordreForm.get('projet')?.invalid && ordreForm.get('projet')?.touched">
+      Le projet est requis.
+    </small>
+  </div>
+
+  <div>
+    <label for="produit">Produit:</label>
+    <select id="produit" formControlName="produit" required>
+      <option value="">-- Sélectionnez un produit --</option>
+      <option *ngFor="let produit of produits" [ngValue]="produit">
+        {{ produit.nom }}
+      </option>
+    </select>
+    <small *ngIf="ordreForm.get('produit')?.invalid && ordreForm.get('produit')?.touched">
+      Le produit est requis.
+    </small>
+  </div>
+
+  <div>
+    <label for="quantite">Quantité:</label>
+    <input type="number" id="quantite" formControlName="quantite" required />
+    <small *ngIf="ordreForm.get('quantite')?.invalid && ordreForm.get('quantite')?.touched">
+      La quantité doit être un nombre positif.
+    </small>
+  </div>
+
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" id="date" formControlName="date" required />
+    <small *ngIf="ordreForm.get('date')?.invalid && ordreForm.get('date')?.touched">
+      La date est requise.
+    </small>
+  </div>
+
+  <div>
+    <label for="etat">État:</label>
+    <select id="etat" formControlName="etat" required>
+      <option value="En cours">En cours</option>
+      <option value="Terminé">Terminé</option>
+    </select>
+    <small *ngIf="ordreForm.get('etat')?.invalid && ordreForm.get('etat')?.touched">
+      L'état est requis.
+    </small>
+  </div>
+
+  <button type="submit" [disabled]="ordreForm.invalid">Enregistrer</button>
+      <button (click)="goBack()">Retour</button>
+
+</form>
+</div>

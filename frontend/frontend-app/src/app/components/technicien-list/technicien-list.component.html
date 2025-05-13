@@ -1,0 +1,31 @@
+<div class="container">
+<h2>Liste des Techniciens</h2>
+<button (click)="addTechnicien()">Ajouter un Technicien</button>
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Competences</th>
+      <th>Machine assignee</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let technicien of techniciens">
+      <td>{{ technicien.id }}</td>
+      <td>{{ technicien.nom }}</td>
+      <td>{{ technicien.competences }}</td>
+      <td>{{ technicien.machineAssignee?.nom || 'Not Assigned' }}</td>
+      <td>
+        <button (click)="editTechnicien(technicien.id)">Modifier</button>
+        <button (click)="deleteTechnicien(technicien.id)">Supprimer</button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>

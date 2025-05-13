@@ -1,0 +1,27 @@
+<div class="container">
+<h2>Edit Technicien</h2>
+
+<form [formGroup]="technicienForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nom">Name:</label>
+    <input type="text" id="nom" formControlName="nom" required />
+  </div>
+  <div>
+    <label for="competences">Competences</label>
+    <input type="text" id="competences" formControlName="competences" required />
+  </div>
+  <div>
+    <label for="machine">Machine:</label>
+    <select id="machine" formControlName="machine" required>
+      <option value="" disabled>Select a machine</option>
+      <option *ngFor="let machine of machines" [value]="machine.id">
+        {{ machine.nom }}
+      </option>
+    </select>
+    
+  </div>
+  <button type="submit" [disabled]="technicienForm.invalid">Modifier</button>
+      <button (click)="goBack()">Retour</button>
+
+</form>
+</div>

@@ -1,0 +1,168 @@
+<div class="home-container">
+  <!-- Header Section -->
+  <header class="header">
+    <div class="header-content">
+      <h1>YG Production</h1>
+      <p>Système intelligent de gestion de production. Optimisez vos processus, maximisez votre efficacité et suivez vos opérations en temps réel.</p>
+    
+    </div>
+  </header>
+
+  <!-- Main Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title">Pilotez votre Production</h2>
+      <div class="features-grid">
+        <!-- Ordres de Fabrication Card -->
+        <div class="feature-card">
+          <div class="card-header"></div>
+          <div class="card-content">
+            <h3>Ordres de Fabrication</h3>
+            <p>Planifiez et suivez vos ordres de fabrication en temps réel. Optimisez l'allocation des ressources.</p>
+            <div class="stat">
+              <div class="stat-icon">✓</div>
+              <span>Planification intelligente</span>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">✓</div>
+              <span>Suivi en temps réel</span>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">✓</div>
+              <span>Gestion des priorités</span>
+            </div>
+            <a routerLink="/ordres-fabrication" class="card-button">Gérer les OF</a>
+          </div>
+        </div>
+        
+        <!-- Machines Card -->
+        <div class="feature-card">
+          <div class="card-header"></div>
+          <div class="card-content">
+            <h3>Machines</h3>
+            <p>Consultez l'état de vos machines, planifiez la maintenance et optimisez leur utilisation.</p>
+            <div class="stat">
+              <div class="stat-icon">✓</div>
+              <span>Suivi des états</span>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">✓</div>
+              <span>Planning de maintenance</span>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">✓</div>
+              <span>Historique d'utilisation</span>
+            </div>
+            <a routerLink="/machines" class="card-button">Gérer les Machines</a>
+          </div>
+        </div>
+        
+        <!-- Stock & Produits Card -->
+        <div class="feature-card">
+          <div class="card-header"></div>
+          <div class="card-content">
+            <h3>Produits & Stock</h3>
+            <p>Gérez votre catalogue de produits, suivez les niveaux de stock et les fournisseurs.</p>
+            <div class="stat">
+              <div class="stat-icon">✓</div>
+              <span>Gestion des références</span>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">✓</div>
+              <span>Niveaux de stock</span>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">✓</div>
+              <span>Gestion fournisseurs</span>
+            </div>
+            <a routerLink="/produits" class="card-button">Gérer les Produits</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modules Section -->
+  <section class="modules-section">
+    <div class="container">
+      <h2 class="section-title">Modules Principaux</h2>
+      <div class="modules-container">
+        <!-- Module 1 -->
+        <div class="module-item">
+          <div class="module-icon">OF</div>
+          <h3>Ordres de Fabrication</h3>
+          <p>Créez, modifiez et suivez les ordres de fabrication avec une interface intuitive.</p>
+          <a routerLink="/ordres-fabrication" class="module-link">Accéder</a>
+        </div>
+        
+        <!-- Module 2 -->
+        <div class="module-item">
+          <div class="module-icon">P</div>
+          <h3>Produits</h3>
+          <p>Gérez votre catalogue de produits et suivez les niveaux de stock en temps réel.</p>
+          <a routerLink="/produits" class="module-link">Accéder</a>
+        </div>
+        
+        <!-- Module 3 -->
+        <div class="module-item">
+          <div class="module-icon">M</div>
+          <h3>Machines</h3>
+          <p>Surveillez l'état de vos machines et planifiez les opérations de maintenance.</p>
+          <a routerLink="/machines" class="module-link">Accéder</a>
+        </div>
+        
+        <!-- Module 4 -->
+        <div class="module-item">
+          <div class="module-icon">T</div>
+          <h3>Techniciens</h3>
+          <p>Gérez vos équipes techniques et leurs affectations aux différentes machines.</p>
+          <a routerLink="/techniciens" class="module-link">Accéder</a>
+        </div>
+        
+        <!-- Module 5 -->
+        <div class="module-item">
+          <div class="module-icon">MA</div>
+          <h3>Maintenance</h3>
+          <p>Planifiez et suivez les opérations de maintenance préventive et corrective.</p>
+          <a routerLink="/maintenance" class="module-link">Accéder</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>ProduGest</h4>
+          <ul class="footer-links">
+            <li><a routerLink="/a-propos">À propos</a></li>
+            <li><a routerLink="/contact">Contact</a></li>
+            <li><a routerLink="/aide">Centre d'aide</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Modules</h4>
+          <ul class="footer-links">
+            <li><a routerLink="/ordres-fabrication">Ordres de fabrication</a></li>
+            <li><a routerLink="/produits">Produits</a></li>
+            <li><a routerLink="/machines">Machines</a></li>
+            <li><a routerLink="/techniciens">Techniciens</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Ressources</h4>
+          <ul class="footer-links">
+            <li><a routerLink="/documentation">Documentation</a></li>
+            <li><a routerLink="/tutoriels">Tutoriels</a></li>
+            <li><a routerLink="/formations">Formations</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 ProduGest - Système de Gestion de Production. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+</div>

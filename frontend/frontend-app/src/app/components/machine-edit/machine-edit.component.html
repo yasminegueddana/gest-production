@@ -1,0 +1,32 @@
+<div class="container">
+
+<h2>Modifier une Machine</h2>
+
+<form [formGroup]="machineForm" (ngSubmit)="onSubmit()">
+  <!-- Machine Name -->
+  <div>
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" formControlName="nom" required />
+  </div>
+
+  <!-- Machine State -->
+  <div>
+    <label for="etat">État:</label>
+    <select id="etat" formControlName="etat" required>
+      <option value="Disponible">Disponible</option>
+      <option value="En maintenance">En maintenance</option>
+    </select>
+  </div>
+
+  <!-- next Maintenance Date -->
+  <div>
+    <label for="prochaineMaintenance">Prochaine Maintenance:</label>
+    <input type="date" id="prochaineMaintenance" formControlName="prochaineMaintenance" required />
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="machineForm.invalid">Modifier</button>
+  <button (click)="goBack()">Retour</button>
+</form>
+</div>
+

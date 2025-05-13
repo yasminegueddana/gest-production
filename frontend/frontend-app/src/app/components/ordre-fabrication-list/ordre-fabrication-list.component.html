@@ -1,0 +1,35 @@
+<div class="container">
+
+<h2>Liste des Ordres de Fabrication</h2>
+<button [routerLink]="['/ordres/add']">Ajouter un Ordre</button>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Projet</th>
+      <th>Produit</th>
+      <th>Quantité</th>
+      <th>Date</th>
+      <th>État</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ordre of ordres">
+      <td>{{ ordre.id }}</td>
+      <td>{{ ordre.projet }}</td>
+      <td>{{ ordre.produit?.nom || 'N/A' }}</td>
+      <td>{{ ordre.quantite }}</td>
+      <td>{{ ordre.date | date }}</td>
+      <td>{{ ordre.etat }}</td>
+      <td>
+        <button [routerLink]="['/ordres/edit', ordre.id]">Modifier</button>
+        <button (click)="deleteOrdre(ordre.id)">Supprimer</button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
