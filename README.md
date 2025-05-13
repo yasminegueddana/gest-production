@@ -1,133 +1,169 @@
+# Système de Gestion de Production
 
-# 🏭 Production Management System – Gestion des Ordres de Fabrication
+## 📘 Description du Projet
 
-## 📘 Project Description
+Cette application full-stack permet de gérer efficacement les processus de production d'une entreprise industrielle. Elle centralise la création, la planification et le suivi des ordres de fabrication, la gestion des machines, des techniciens, des produits et des maintenances.
 
-This Production Management System is a robust application designed for manufacturing environments to manage and monitor production operations. It enables:
+- Planifier et suivre les ordres de fabrication
+- Gérer l'état et la maintenance des machines
+- Affecter les techniciens aux équipements
+- Surveiller les niveaux de stock des produits
+- Planifier les opérations de maintenance préventive et corrective
 
-- Creation and tracking of production orders  
-- Monitoring of machine status and maintenance  
-- Assignment of machines and employees  
-- Management of product inventory and stock updates  
-
-The goal is to digitize and optimize production processes to improve efficiency, reduce downtime, and support decision-making.
-
----
-
-## 📦 Core Features
-
-- ✅ CRUD operations for all entities
-- 🛠️ Real-time tracking of fabrication orders
-- 👨‍🔧 Assignment of machines and employees to tasks
-- 🔧 Maintenance tracking of machines
-- 📈 Automatic stock updates when production is completed
+L'objectif est de digitaliser l'ensemble du cycle de production pour améliorer l'efficacité, réduire les temps d'arrêt et faciliter la prise de décision.
 
 ---
 
-## 📊 Data Model
+## Modèle de Données
 
-### 🧱 Entities
+### Entités Principales
 
-- **OrdreFabrication**:  
-  `id`, `projet`, `produit`, `quantite`, `date`, `etat`
-
-- **Produit**:  
-  `id`, `nom`, `type`, `stock`, `fournisseur`
-
-- **Machine**:  
-  `id`, `nom`, `etat`, `derniereMaintenance`
-
-- **Employé**:  
-  `id`, `nom`, `poste`, `machineAssignee`
-
-- **Fournisseur**:
-  `id`, `nom`, `adresse`, `téléphone`
+- **OrdreFabrication** : `id`, `produit`, `quantité`, `date`, `machine`, `statut`
+- **Produit** : `id`, `nom`, `type`, `stock`, `fournisseur`
+- **Machine** : `id`, `nom`, `état`, `maintenance_prochaine`
+- **Technicien** : `id`, `nom`, `compétences`, `machine_assignee`
+- **Maintenance** : `id`, `machine`, `technicien`, `date`, `type`
 
 ---
 
-## 🧰 Technologies Used
+## 📦 Fonctionnalités Clés
 
-### Backend
-- **Spring Boot** : REST API framework
-- **Java** : Latest LTS version
-- **Spring Data JPA** : ORM for database interaction
-- **MySQL**: Relational database
-- **Maven**: Build and dependency management
+- ✅ **Gestion complète des données (CRUD)** pour toutes les entités
+- 📋 **Planification et suivi des ordres de fabrication**
+  - Création, modification et suivi des ordres
+  - Affectation des produits et machines
+  - Gestion du statut d'avancement
+- 🔧 **Gestion des machines**
+  - Suivi de l'état en temps réel
+  - Historique d'utilisation
+  - Planification des maintenances
+- 👨‍🔧 **Gestion des techniciens**
+  - Affectation aux machines
+  - Suivi des compétences
+- 🛠️ **Planification des maintenances**
+  - Maintenance préventive
+  - Maintenance corrective
+  - Historique des interventions
+
+---
+
+## 🧰 Technologies Utilisées
 
 ### Frontend
-- **Angular**: Modern web frontend framework
-- **TypeScript**: Typed JavaScript for Angular
-- **Angular Material**: UI component library
-- **RxJS**: Reactive extensions
+- **Angular** : Framework moderne pour l'interface utilisateur
+- **TypeScript** : JavaScript typé pour plus de robustesse
+- **SCSS** : Préprocesseur CSS pour des styles avancés
+- **Angular Material** : Composants UI préconçus
+
+### Back-end
+- **Spring Boot**
+- **Java 17**
+- **Spring Data JPA**
+- **MySQL**
+- **Maven**
+
 
 ### DevOps
-- **Docker**: Containerization
-- **Docker Compose**: Service orchestration
+- **Git** : Gestion de versions
+- **GitLab CI/CD** : Intégration et déploiement continus
+- **Docker** : Conteneurisation
+- **Docker Compose** : Orchestration de services
 
 ---
 
-## 💻 Development Setup
+## 💻 Installation et Configuration
 
-### ✅ Prerequisites
-
-- JDK 17  
-- Maven  
-- Node.js & npm  
-- MySQL  
-- Docker & Docker Compose  
-
----
-
-## ▶️ Running Locally (Without Docker)
+### ✅ Prérequis
+- Node.js (v16+)
+- Angular CLI
+- Maven
+- Node.js & npm
+- Git
 
 ### Backend
+
 ```bash
-mvn clean install
-mvn spring-boot:run
+# Cloner le dépôt
+git clone https://gitlab.com/votre-utilisateur/produgest.git
+cd produgest/backend
+
+# Installer les dépendances
+npm install
+
+# Configurer les variables d'environnement
+cp .env.example .env
+# Éditer le fichier .env avec vos configurations
+
+# Lancer le serveur en mode développement
+npm run dev
 ```
 
 ### Frontend
+
 ```bash
-cd frontend
+# Se déplacer dans le dossier frontend
+cd ../frontend
+
+# Installer les dépendances
 npm install
+
+# Lancer l'application en mode développement
 ng serve
 ```
 
-➡️ Access the app at: [http://localhost:4200](http://localhost:4200)
+Accédez à l'application via : [http://localhost:4200](http://localhost:4200)
 
 ---
 
-## 🐳 Docker Setup
+## 🐳 Configuration Docker
 
-### 1. Build the app
+### 1. Construction des images
+
 ```bash
-mvn clean package -DskipTests
+# À la racine du projet
+docker-compose build
 ```
 
-### 2. Start services
+### 2. Démarrage des services
+
 ```bash
 docker-compose up -d
 ```
 
-### 3. Access
-- Frontend: [http://localhost](http://localhost)
-- Backend API: [http://localhost:8080/api](http://localhost:8080/api)
-- MySQL: `localhost:3306` (username: `root`, password: ``)
+### 3. Accès
+- Frontend : [http://localhost:4200](http://localhost:4200)
+- Backend API : [http://localhost:8081/api](http://localhost:8081/api)
+- MongoDB : `localhost:27017`
 
-### 4. Stop
+### 4. Arrêt des services
+
 ```bash
 docker-compose down
 ```
 
 ---
 
-## 🧱 Architecture Diagram
+## 🧱 Architecture du Système
 
 ```
-┌────────────────────┐     ┌────────────────────┐     ┌────────────────────┐
-│                    │     │                    │     │                    │
-│   Angular Frontend │────▶│ Spring Boot Backend│────▶│     MySQL DB       │
-│     (Port 80)      │     │   (Port 8080)      │     │    (Port 3306)     │
-│                    │     │                    │     │                    │
-└────────────────────┘     └────────────────────┘     └────────────────────┘
+┌─────────────────────┐      ┌─────────────────────┐      ┌─────────────────────┐
+│                     │      │                     │      │                     │
+│   Angular Frontend  │─────▶│   Node.js Backend   │─────▶│    MySQL DB  │
+│     (Port 4200)     │      │     (Port 8081)     │      │     (Port 3306)   │
+│                     │      │                     │      │                     │
+└─────────────────────┘      └─────────────────────┘      └─────────────────────┘
 ```
+
+
+
+## 📄 Licence
+
+Ce projet est sous licence [MIT](LICENSE)
+
+---
+
+## 👥 Développée par
+Yasmine Gueddana
+
+---
+
